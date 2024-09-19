@@ -110,6 +110,11 @@ pipeline {
                     --extra-vars "JFrogURL=${params.JFrogURL} DOCKER_IMAGE_NAME=${DOCKER_IMAGE_NAME} AppPort=${params.AppPort}" \
                     --vault-password-file ansible/deployer/vault_password.txt
                     """
+            hosts: all   
+                  vars:   
+                    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+
+
                 }
             }
         }
